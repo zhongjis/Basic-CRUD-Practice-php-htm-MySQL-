@@ -17,22 +17,24 @@
 			</tr>
 		</thead>
 		<tbody>
+			<?php while ($row = mysqli_fetch_array($results)) {?>
 			<tr>
 				<td>
 					<input type="checkbox" name="status">
 				</td>
-				<td>Finish this project</td>
-				<td>Good Luck!</td>
-				<td>due today</td>
+				<td><?php echo $row['event']; ?></td>
+				<td><?php echo $row['note']; ?></td>
+				<td><?php echo $row['duedate']; ?></td>
 				<td>Edit</td>
 			</tr>
+			<?php } ?>
 		</tbody>
 	</table>
 
-	<form>
+	<form method="post" action="server.php">
 		<div class="input_group">
 			<label>To-do</label>
-			<input type="text" name="todo">
+			<input type="text" name="event">
 		</div>
 		<div class="input_group">
 			<label>Note</label>
@@ -41,8 +43,8 @@
 		<div class="input_group">
 			<label>Deadline</label>
 			<input type="text" name="due">
-		</div>
-		<button class="btn" type="submit" name="save">Save</button>
+		</div class="input_group">
+			<button class="btn" type="submit" name="save">Save</button>
 	</form>
 </body>
 </html>

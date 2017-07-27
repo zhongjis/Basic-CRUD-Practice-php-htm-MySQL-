@@ -1,6 +1,6 @@
 <?php 
 	ini_set('display_errors', 1);
-	error_reporting(E_ALL ^ E_NOTICE);
+	error_reporting(E_ALL);
 
 	session_start();
 	$id = 0;
@@ -13,22 +13,24 @@
 	$db = mysqli_connect('localhost:8889', 'root', 'root', 'crud');
 
 	//make sure connection is established
-	if (!db) {
+	if (!$db) {
 		echo "ERROR: unable to connect to MySQL." . PHP_EOL;
 		echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
 		echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 	}
 
-	//save
-	// if (isset($_POST['save'])) {
-	// 	$event = $_POST['event'];
-	// 	$note = $_POST['note'];
-	// 	$due = $_POST['due']
+	// read
+	$results = mysqli_query($db, "SELECT * FROM todo");
 
-	// 	$query = "INSERT INTO event (event, note, due) VALUES ('$event', '$note', 'due')";
+	// save
+	if (isset($_POST['save'])) {
+		$event = $_POST['event'];
+		$note = $_POST['note'];
+		$due = $_POST['due'];
 
-	// 	mysqli_query($db, $query);
-	// 	//$_SESSION['msg'] = "Address Saved";
-	// 	header('location: index.php');
-	// }
+		$query = "INSERT INTO todo (event, note, duedate) VALUES ('$event', '$note', '$due')";
+		mysqli_query($db, $query);
+		//$_SESSION['msg'] = "Address Saved";
+		header("location: index.php");
+	}
  ?>
