@@ -9,21 +9,21 @@
 		<thead>
 			<tr>
 				<th></th>
-				<th>Status</th>
 				<th>To_Do</th>
 				<th>Notes</th>
 				<th>Deadline</th>
 			</tr>
 		</thead>
 		<tbody>
-			<td>
-				<th>
+			<tr>
+				<td>
 					<input type="checkbox" name="status">
-				</th>
-				<th>Finish this project</th>
-				<th>Good Luck!</th>
-				<th>due today</th>
-			</td>
+				</td>
+				<td>Finish this project</td>
+				<td>Good Luck!</td>
+				<td>due today</td>
+				<td>Edit</td>
+			</tr>
 		</tbody>
 	</table>
 
