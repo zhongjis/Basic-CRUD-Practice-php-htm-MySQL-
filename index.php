@@ -1,3 +1,5 @@
+<?php include ('server.php') ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +40,7 @@
 		</div>
 		<div class="input_group">
 			<label>Deadline</label>
-			<input type="text" name="date">
+			<input type="text" name="due">
 		</div>
 		<button class="btn" type="submit" name="save">Save</button>
 	</form>
